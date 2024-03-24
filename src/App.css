@@ -1,0 +1,53 @@
+
+.ilc {
+    background-color: #f3e4ee;
+    padding: 10rem;
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.idc {
+    width: 100%;
+    padding: 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: space-around;
+    background-color: #f3e4ee;
+    padding: 10rem;
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.idetail {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: space-around;
+    background-color: #f3e4ee;
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.card {
+    width: 30rem;
+    margin: 1rem;
+}
+
+.catcolor {
+    color: rgb(194, 75, 154);
+}
+
+.itemcount {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navimg {
+    width: 4rem;
+    margin-top: -1rem;
+    margin-bottom: -1rem;
+    margin-left: 1rem;
+}

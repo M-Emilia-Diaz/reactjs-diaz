@@ -30,7 +30,7 @@ const ItemCount = ({stock}) => {
 
     return(
         <>
-        <div className="d-flex align justify-content-center">
+        <div className="itemcount">
             <button className="btn btn-danger" onClick={restar}>-</button>
                 <span className="btn">{count}</span>
             <button className="btn btn-success" onClick={sumar}>+</button>

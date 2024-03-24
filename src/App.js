@@ -1,4 +1,4 @@
-import './App.css'
+import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.js' 
 import NavBar from './components/navbar/NavBar'
@@ -14,9 +14,8 @@ function App() {
       <NavBar/>
       <Routes>
         <Route path='/' element={ <ItemListContainer greeting="Bienvenidos a la mejor tienda de Macarons"/>} />
-        <Route path='/categoria/:categoriaId' element={<ItemListContainer/>} />
+        <Route path='/categories/:categoryId' element={<ItemListContainer greeting='Categoria:'/>} />
         <Route path='/item/:itemId' element={<ItemDetailContainer/>} />
-        <Route path='*' element={<h2>404 NOT FOUND</h2> } />
       </Routes>
 
     </BrowserRouter>

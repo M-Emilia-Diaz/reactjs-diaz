@@ -3,7 +3,7 @@ import ItemCount from '../itemCount/ItemCount'
 
 const ItemDetail = ({producto}) => {   
     return(
-        <div>
+        <div className="idetail">
             <h3>Detalle de: {producto.name} </h3>
             <img style={{width: '18rem'}} alt={producto.name} src={producto.imagen}/>
             <p>{producto.description}</p>
