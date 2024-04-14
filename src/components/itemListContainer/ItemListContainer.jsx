@@ -1,9 +1,11 @@
 
 import React from "react";
-import { useState, useEffect} from "react";
-import { getProducts } from "../../mock/data";   
+import { useState, useEffect} from "react"; 
 import ItemList from "../itemList/ItemList";
 import { useParams } from "react-router-dom";
+import Cargador from "../loader/Cargador";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { db } from "../../services/firebase";
 
 function ItemListContainer({greeting}) { 
     const [productos, setProductos]=useState([])
@@ -13,20 +15,29 @@ function ItemListContainer({greeting}) {
     
 useEffect(() => { 
             setLoading(true)
-           getProducts()
+        
+        const productsCollection = categoryId ? query(collection(db, "productos"), where("category", "==", categoryId)) :collection(db, "productos")
+
+        getDocs(productsCollection)
+
            .then((res) => {
-            if(categoryId){
-                setProductos(res.filter((prod)=> prod.category === categoryId))
-            }else{
-                setProductos(res)
-            }
-           })
+            const list = res.docs.map((product)=>{
+                return{
+                    id:product.id,
+                    ...product.data()
+                }
+            })
+            setProductos(list)
+        })
+       
            .catch((error) => console.log(error, 'hubo un error'))
            .finally(()=> setLoading(false))
         }, [categoryId])
-        // console.log(productos);
+        
         if(loading){
-            return <h1>Cargando...</h1>
+            return (
+                <Cargador/>
+            )
         }
 
 

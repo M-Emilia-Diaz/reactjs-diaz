@@ -1,31 +1,46 @@
-// import React from "react"
+
 import { useEffect, useState } from "react"
-import { getProducts } from "../../mock/data"
 import ItemDetail from "../itemDetail/ItemDetail"
 import { useParams } from "react-router-dom"
+import { collection, doc } from "firebase/firestore"
+import { db } from "../../services/firebase"
+import { getDoc } from "firebase/firestore"
+import Cargador from "../loader/Cargador"
 
 
 const ItemDetailContainer = () => {
     const [producto, setProducto] = useState({})
-    // const [loading, setLoading] = useState(false)
+    const [cargando, setCargando] = useState(false)
+    const [validateItem, setValidateItem] = useState(false)
+
     const {itemId} = useParams()
-    console.log(itemId);
+    // console.log(itemId);
 
 
         useEffect(()=>{
-            // setLoading(true)
-            getProducts()
-            .then((res)=> setProducto(res.find((item)=> item.id === itemId)))
-            .catch((error)=> console.log(error))
-            // .finally(()=> setLoading(false))
-    },[])
+            setCargando(true)
+            const collectionProd = collection(db, "productos")
 
-    // if(loading){
-    //     return <h1>Cargando detalle...</h1>
-    // }
+            const referenciaDoc = doc(collectionProd, itemId)
+
+            getDoc(referenciaDoc)
+            .then((res)=> {
+                if(res.data()){
+                    setProducto({id: res.id, ...res.data()})
+                }else{
+                    setValidateItem(true)
+                }
+            }) 
+            .catch((error)=> console.log(error))
+            .finally(()=> setCargando(false))
+    },[itemId])
+
+    if(cargando){
+        return <Cargador/>
+    }
     return(
         <div className="idc">
-            <ItemDetail producto={producto}/>
+            {validateItem ? <p>El producto no existe</p> : <ItemDetail producto={producto}/>}
         </div>
     )
 }

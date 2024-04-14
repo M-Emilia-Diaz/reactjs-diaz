@@ -51,3 +51,106 @@
     margin-bottom: -1rem;
     margin-left: 1rem;
 }
+
+.cartNav {
+    text-decoration: none;
+}
+
+.formulario {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem;
+    background-color: #f3e4ee;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    
+}
+
+.cart {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem;
+}
+
+.cartImg {
+    width: 8rem;
+}
+
+.totalCart {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-content: center;
+}
+
+.totalCartButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.buttons {
+    background-color: #f742ba;
+    text-decoration: none;
+    color:#f3e4ee;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 1rem;
+    border: solid #e636ab
+}
+
+.confButtons {
+    background-color: #792f60;
+    text-decoration: none;
+    color:#f3e4ee;
+    font-size: 16px;
+    margin: 1rem;
+    padding: 15px;
+    border-radius: 1rem;
+    border: solid #f7f6f6
+}
+
+.emptyCart {
+    width: 100%;
+    padding: 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: space-between;
+    background-color: #f3e4ee;
+    padding: 10rem;
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.int {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: space-between;
+}
+
+.checkout {
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+    max-width: 400px;
+    padding: 20px;
+}
+
+.checkout input {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
